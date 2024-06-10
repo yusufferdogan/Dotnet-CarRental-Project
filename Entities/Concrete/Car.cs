@@ -1,8 +1,7 @@
-using Entities.Abstract;
+using Core.Entities;
 
 namespace Entities.Concrete;
 
-//Id, BrandId, ColorId, ModelYear, DailyPrice, Description 
 public class Car : IEntity
 {
     Guid Id { get; set; }
