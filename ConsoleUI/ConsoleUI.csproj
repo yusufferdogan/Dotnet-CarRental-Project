@@ -8,4 +8,8 @@
         <RootNamespace>ConsoleApp1</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    </ItemGroup>
+
 </Project>
