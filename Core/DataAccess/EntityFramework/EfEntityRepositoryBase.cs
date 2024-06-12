@@ -1,32 +1,56 @@
 using System.Linq.Expressions;
 using Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Core.DataAccess.EntityFramework;
 
-public class EfEntityRepositoryBase<T> : IEntityRepository<T> where T : class, IEntity, new()
+public class EfEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntity> 
+    where TEntity : class, IEntity, new()
+    where TContext : DbContext, new()
 {
-    public void Add(T entity)
+    public void Add(TEntity entity)
     {
-        throw new NotImplementedException();
+        using (TContext context = new TContext())
+        {
+            var addedEntity = context.Add(entity);
+            addedEntity.State = EntityState.Added;
+            context.SaveChanges();
+        }
     }
 
-    public void Delete(T entity)
+    public void Delete(TEntity entity)
     {
-        throw new NotImplementedException();
+        using (TContext context = new TContext())
+        {
+            var removedEntity = context.Remove(entity);
+            removedEntity.State = EntityState.Deleted;
+            context.SaveChanges();
+        }
     }
 
-    public void Update(T entity)
+    public void Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        using (TContext context = new TContext())
+        {
+            var updatedEntity = context.Remove(entity);
+            updatedEntity.State = EntityState.Deleted;
+            context.SaveChanges();   
+        }
     }
 
-    public T Get(Expression<Func<T, bool>> filter)
+    public TEntity Get(Expression<Func<TEntity, bool>> filter)
     {
-        throw new NotImplementedException();
+        using (TContext context = new TContext())
+        {
+            return context.Set<TEntity>().SingleOrDefault(filter);
+        }
     }
 
-    public List<T> GetAll(Expression<Func<T, bool>> filter = null)
+    public List<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter = null)
     {
-        throw new NotImplementedException();
+        using (TContext context = new TContext())
+        {
+            return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
+        }
     }
 }
