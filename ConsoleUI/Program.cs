@@ -1,13 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 
 class Program
 {
     static void Main(string[] args)
     {
-        InMemoryCarDal carDal = new InMemoryCarDal();
-        foreach (var car in carDal.GetAll())
+        EfCarDal carDal = new EfCarDal();
+        foreach (var car in carDal.GetCarsDetails())
         {
             Console.WriteLine(car);
         }
