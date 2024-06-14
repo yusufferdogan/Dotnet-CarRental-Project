@@ -1,6 +1,8 @@
+using Core.Entities;
+
 namespace Entities.Concrete;
 
-public class Brand
+public class Brand : IEntity
 {
     public Guid Id { get; set; }
     
