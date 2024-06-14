@@ -1,3 +1,4 @@
+using System.Data;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -20,7 +21,15 @@ public class CarManager: ICarService
 
     public void Add(Car car)
     {
-        
+        if (car.DailyPrice <= 0)
+        {
+            throw new ConstraintException();
+        }
+
+        if (car.Description.Length < 2)
+        {
+            throw new ConstraintException();
+        }
         _carDal.Add(car);
     }
 
