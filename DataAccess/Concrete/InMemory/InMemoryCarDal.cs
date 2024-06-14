@@ -47,17 +47,33 @@ public class InMemoryCarDal: ICarDal
         return filter == null ? _cars : _cars.Where(filter.Compile()).ToList();
     }
 
-    public List<CarDetailDto> GetCarDetails()
+
+    public List<CarDetailDto> GetAllCarsDetails()
     {
         throw new NotImplementedException();
     }
 
-    public List<CarDetailDto> GetCarsDetails()
+    public CarDetailDto GetSingleCarDetails(Guid carId)
     {
         throw new NotImplementedException();
     }
 
-    public CarDetailDto GetCarDetails(Guid carId)
+    public List<CarDetailDto> GetCarsDetailsByBrand(string brandName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<CarDetailDto> GetCarsDetailsByColor(string colorName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<CarDetailDto> GetCarsDetailsByBrandId(Guid brandId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<CarDetailDto> GetCarsDetailsByColorId(Guid colorId)
     {
         throw new NotImplementedException();
     }
