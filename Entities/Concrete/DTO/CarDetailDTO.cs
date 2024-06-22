@@ -1,6 +1,8 @@
+using Core.Entities;
+
 namespace Entities.Concrete.DTO;
 
-public class CarDetailDto
+public class CarDetailDto:IDto
 {
     public Guid CarId { get; set; }
 
