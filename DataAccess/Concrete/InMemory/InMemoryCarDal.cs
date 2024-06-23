@@ -25,13 +25,13 @@ public class InMemoryCarDal: ICarDal
 
     public void Delete(Car entity)
     {
-        Car carToDelete = _cars.SingleOrDefault(p => p.Id == entity.Id);
+        Car carToDelete = _cars.SingleOrDefault(p => p.CarId == entity.CarId);
         _cars.Remove(carToDelete);
     }
 
     public void Update(Car entity)
     {
-        Car carToUpdate = _cars.SingleOrDefault(c => c.Id == entity.Id);
+        Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == entity.CarId);
         carToUpdate.ModelYear = entity.ModelYear;
         carToUpdate.DailyPrice = entity.DailyPrice;
         carToUpdate.Description = entity.Description;

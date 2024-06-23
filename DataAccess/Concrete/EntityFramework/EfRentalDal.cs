@@ -9,6 +9,27 @@ public class EfRentalDal: EfEntityRepositoryBase<Rental,CarRentalDbContext>, IRe
 {
     public List<RentalDetailsDto> RentalDetails()
     {
-        throw new NotImplementedException();
+        using (CarRentalDbContext context = new CarRentalDbContext())
+        {
+            {
+                var result = from rental in context.Rentals
+                    join car in context.Cars on rental.CarId equals car.CarId
+                    join cus in context.Customers on rental.CustomerId equals cus.CustomerId
+                    join user in context.Users on cus.UserId equals user.UserId
+                    join brand in context.Brands on car.BrandId equals brand.BrandId
+                    select new RentalDetailsDto
+                    {
+                        RentalId = rental.RentalId,
+                        CarName = car.Description,
+                        BrandName = brand.Name,
+                        CustomerName = user.FirstName + " " + user.LastName,
+                        RentDate = rental.RentDate,
+                        ReturnDate = rental.ReturnDate
+                    };
+
+                return result.ToList();
+            }
+                
+        }
     }
 }

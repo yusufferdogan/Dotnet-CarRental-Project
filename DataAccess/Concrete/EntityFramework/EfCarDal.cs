@@ -21,11 +21,11 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
             var result = from car in context.Cars
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.ColorId equals color.Id
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,
@@ -41,12 +41,12 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
     {
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
-            var result = from car in context.Cars where car.Id == carId
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.Id equals color.Id
+            var result = from car in context.Cars where car.CarId == carId
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.CarId equals color.ColorId
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,
@@ -63,12 +63,12 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
             var result = from car in context.Cars
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.ColorId equals color.Id
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
                 where brand.Name == brandName
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,
@@ -85,12 +85,12 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
             var result = from car in context.Cars
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.ColorId equals color.Id
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
                 where color.Name == colorName
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,
@@ -107,12 +107,12 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
             var result = from car in context.Cars
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.ColorId equals color.Id
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
                 where car.BrandId == brandId
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,
@@ -129,12 +129,12 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
         using (CarRentalDbContext context = new CarRentalDbContext())
         {
             var result = from car in context.Cars
-                join brand in context.Brands on car.BrandId equals brand.Id
-                join color in context.Colors on car.ColorId equals color.Id
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
                 where car.ColorId == colorId
                 select new CarDetailDto()
                 {
-                    CarId = car.Id,
+                    CarId = car.CarId,
                     BrandName = brand.Name,
                     DailyPrice = car.DailyPrice,
                     ModelYear = car.ModelYear,

@@ -9,6 +9,19 @@ public class EfCustomerDal:EfEntityRepositoryBase<Customer, CarRentalDbContext>,
 {
     public List<CustomerDetailDto> CustomerDetails()
     {
-        throw new NotImplementedException();
+        using (CarRentalDbContext context = new CarRentalDbContext())
+        {
+            var result = from customer in context.Customers
+                join user in context.Users on customer.UserId equals user.UserId
+                select new CustomerDetailDto
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    CompanyName = customer.CompanyName
+                };
+
+            return result.ToList();
+        }
     }
 }
