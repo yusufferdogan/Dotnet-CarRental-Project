@@ -4,7 +4,7 @@ namespace Entities.Concrete.DTO;
 
 public class RentalDetailsDto:IDto
 {
-    public int RentalId { get; set; }
+    public Guid RentalId { get; set; }
     public string CarName { get; set; }
     public string BrandName { get; set; }
     public string CustomerName { get; set; }

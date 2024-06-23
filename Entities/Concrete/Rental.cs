@@ -4,10 +4,10 @@ namespace Entities.Concrete;
 
 public class Rental : IEntity
 {
-    public int Id { get; set; }
-    public int CarId { get; set; }
-    public int CustomerId { get; set; }
+    public Guid RentalId { get; set; }
+    public Guid CarId { get; set; }
+    public Guid CustomerId { get; set; }
     public DateTime RentDate { get; set; }
-    public DateTime? ReturnDate { get; set; } = null;
+    public DateTime ReturnDate { get; set; }
 }
 

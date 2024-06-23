@@ -4,7 +4,7 @@ namespace Entities.Concrete;
 
 public class Car : IEntity
 {
-    public Guid Id { get; set; }
+    public Guid CarId { get; set; }
     public Guid BrandId { get; set; }
     public Guid ColorId { get; set; }
     
@@ -15,13 +15,13 @@ public class Car : IEntity
     // Default constructor
     public Car()
     {
-        Id = Guid.NewGuid();
+        CarId = Guid.NewGuid();
     }
 
     // Parameterized constructor
     public Car(Guid brandId, Guid colorId, int modelYear, decimal dailyPrice, string description)
     {
-        Id = Guid.NewGuid();
+        CarId = Guid.NewGuid();
         BrandId = brandId;
         ColorId = colorId;
         ModelYear = modelYear;
@@ -31,6 +31,6 @@ public class Car : IEntity
     
     public override string ToString()
     {
-        return $"Id: {Id,-10} BrandId: {BrandId,-10} ColorId: {ColorId,-10} ModelYear: {ModelYear,-10} DailyPrice: {DailyPrice,-10} Description: {Description,-20}";
+        return $"Id: {CarId,-10} BrandId: {BrandId,-10} ColorId: {ColorId,-10} ModelYear: {ModelYear,-10} DailyPrice: {DailyPrice,-10} Description: {Description,-20}";
     }
 }
