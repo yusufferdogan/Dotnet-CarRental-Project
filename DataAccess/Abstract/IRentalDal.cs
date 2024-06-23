@@ -7,5 +7,6 @@ namespace DataAccess.Abstract;
 public interface IRentalDal: IEntityRepository<Rental>
 {
     public List<RentalDetailsDto> RentalDetails();
+    public bool CheckCarRented(Guid carId);
 
 }

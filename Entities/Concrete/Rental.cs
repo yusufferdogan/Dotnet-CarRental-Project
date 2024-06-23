@@ -8,6 +8,6 @@ public class Rental : IEntity
     public Guid CarId { get; set; }
     public Guid CustomerId { get; set; }
     public DateTime RentDate { get; set; }
-    public DateTime ReturnDate { get; set; }
+    public DateTime? ReturnDate { get; set; }
 }
 

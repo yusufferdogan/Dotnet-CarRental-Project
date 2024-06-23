@@ -7,6 +7,16 @@ namespace DataAccess.Concrete.EntityFramework;
 
 public class EfRentalDal: EfEntityRepositoryBase<Rental,CarRentalDbContext>, IRentalDal
 {
+    public bool CheckCarRented(Guid carId)
+    {
+        using (CarRentalDbContext context = new CarRentalDbContext())
+        {
+            var result = from rental in context.Rentals
+                where rental.CarId == carId && rental.ReturnDate == null
+                select rental;
+            return result.Any();
+        }
+    }
     public List<RentalDetailsDto> RentalDetails()
     {
         using (CarRentalDbContext context = new CarRentalDbContext())
