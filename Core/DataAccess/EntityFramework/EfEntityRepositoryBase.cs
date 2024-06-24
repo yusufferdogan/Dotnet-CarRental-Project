@@ -32,8 +32,8 @@ public class EfEntityRepositoryBase<TEntity,TContext> : IEntityRepository<TEntit
     {
         using (TContext context = new TContext())
         {
-            var updatedEntity = context.Remove(entity);
-            updatedEntity.State = EntityState.Deleted;
+            var updatedEntity = context.Update(entity);
+            updatedEntity.State = EntityState.Modified;
             context.SaveChanges();   
         }
     }
