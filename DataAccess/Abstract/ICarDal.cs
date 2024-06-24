@@ -17,8 +17,6 @@ public interface ICarDal : IEntityRepository<Car>
     public List<CarDetailDto> GetCarsDetailsByBrandId(Guid brandId);
 
     public List<CarDetailDto> GetCarsDetailsByColorId(Guid colorId);
-    
-    
 
-
+    List<CarDetailDto> GetCarDetailsByCarId(Guid carId);
 }
