@@ -11,14 +11,16 @@ public class RentalManager: IRentalService
     private readonly IRentalDal _rentalDal;
     private readonly ICarDal _carDal;
     
-    public RentalManager(IRentalDal rentalDal)
+    public RentalManager(IRentalDal rentalDal, ICarDal carDal)
     {
         _rentalDal = rentalDal;
+        _carDal = carDal;
     }
     
     public Result RentCar(Guid carId, Guid customerId)
     {
-        var car = _carDal.Get(p=>p.CarId == carId);
+        var car = _carDal.Get(p=> p.CarId.Equals(carId));
+        Console.WriteLine(car);
         if(car == null)
         {
             return new ErrorResult("Car not found!");
