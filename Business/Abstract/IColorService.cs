@@ -14,4 +14,5 @@ public interface IColorService
     public DataResult<Color> GetById(Guid id);
     
     public Result RemoveById(Guid id);
+    public Result RemoveByName(string name);
 }

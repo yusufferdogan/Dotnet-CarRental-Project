@@ -12,5 +12,6 @@ public interface ICustomerService
     public DataResult<List<Customer>> GetAll();
     public DataResult<Customer> GetById(Guid id);
     public DataResult<List<CustomerDetailDto>> GetAllCustomerDetails();
+    
     public Result RemoveById(Guid id);
 }

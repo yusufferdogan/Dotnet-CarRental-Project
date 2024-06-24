@@ -52,4 +52,15 @@ public class ColorManager: IColorService
         _colorDal.Delete(color);
         return new SuccessResult();
     }
+
+    public Result RemoveByName(string name)
+    {
+        var color = _colorDal.Get(c => c.Name == name);
+        if (color == null)
+        {
+            return new ErrorResult("Color not found");
+        }
+        _colorDal.Delete(color);
+        return new SuccessResult();
+    }
 }

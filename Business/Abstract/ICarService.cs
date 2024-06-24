@@ -11,18 +11,19 @@ public interface ICarService
 
     public DataResult<List<Car>> GetCarsByBrandId(Guid brandId);
 
-    public DataResult<List<CarDetailDto>> GetAllCarsDetails(Guid brandId);
+    public DataResult<List<CarDetailDto>> GetAllCarsDetails();
+    public DataResult<List<CarDetailDto>> GetCarDetailsByCarId(Guid carId);
     public DataResult<List<CarDetailDto>> GetCarsDetailsByBrand(string brand);
     public DataResult<List<CarDetailDto>> GetCarsDetailsByColor(string color);
     
     public DataResult<List<CarDetailDto>> GetCarsDetailsByBrandId(Guid brandId);
     public DataResult<List<CarDetailDto>> GetCarsDetailsByColorId(Guid colorId);
 
-    public Result Add(Car car);
+    public Result Add(CarDetailDto car);
 
     public Result Remove(Car car);
 
-    public Result Update(Car car);
+    public Result Update(CarDetailDto car);
     
     public DataResult<Car> GetById(Guid id);
     
