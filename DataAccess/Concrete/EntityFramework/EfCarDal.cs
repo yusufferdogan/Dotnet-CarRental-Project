@@ -145,4 +145,26 @@ public class EfCarDal : EfEntityRepositoryBase<Car, CarRentalDbContext>, ICarDal
             return result.ToList();
         }
     }
+
+    public List<CarDetailDto> GetCarDetailsByCarId(Guid carId)
+    {
+        using (CarRentalDbContext context = new CarRentalDbContext())
+        {
+            var result = from car in context.Cars
+                join brand in context.Brands on car.BrandId equals brand.BrandId
+                join color in context.Colors on car.ColorId equals color.ColorId
+                where car.CarId == carId
+                select new CarDetailDto()
+                {
+                    CarId = car.CarId,
+                    BrandName = brand.Name,
+                    DailyPrice = car.DailyPrice,
+                    ModelYear = car.ModelYear,
+                    Description = car.Description,
+                    ColorName = color.Name
+                };
+
+            return result.ToList();
+        }
+    }
 }
