@@ -47,4 +47,15 @@ public class CustomerManager: ICustomerService
     {
         return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.CustomerDetails());
     }
+
+    public Result RemoveById(Guid id)
+    {
+        var customer = _customerDal.Get(p => p.CustomerId == id);
+        if (customer == null)
+        {
+            return new ErrorResult("Customer not found.");
+        }
+        _customerDal.Delete(customer);
+        return new SuccessResult("Customer removed successfully.");
+    }
 }

@@ -82,4 +82,14 @@ public class CarManager : ICarService
         return new SuccessResult(Messages.CarIsSuccessfullyUpdated);
     }
 
+    public DataResult<Car> GetById(Guid id)
+    {
+        return new SuccessDataResult<Car>(_carDal.Get(car => car.CarId == id));
+    }
+
+    public Result RemoveById(Guid id)
+    {
+        _carDal.Delete(_carDal.Get(car => car.CarId == id));
+        return new SuccessResult(Messages.CarIsSuccessfullyRemoved);
+    }
 }

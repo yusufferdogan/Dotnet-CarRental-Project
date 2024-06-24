@@ -17,23 +17,39 @@ public class BrandManager:IBrandService
     public Result Add(Brand brand)
     {
         _brandDal.Add(brand);
-        return new SuccessResult();
+        return new SuccessResult("Brand added successfully.");
     }
 
     public Result Remove(Brand brand)
     {
         _brandDal.Delete(brand);
-        return new SuccessResult();
+        return new SuccessResult("Brand removed successfully.");
     }
 
     public Result Update(Brand brand)
     {
         _brandDal.Update(brand);
-        return new SuccessResult();
+        return new SuccessResult("Brand updated successfully.");
     }
 
     public DataResult<List<Brand>> GetAll()
     {
         return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
+    }
+
+    public DataResult<Brand> GetById(Guid id)
+    {
+        return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == id));
+    }
+
+    public Result RemoveById(Guid id)
+    {
+        var brand = _brandDal.Get(b => b.BrandId == id);
+        if (brand == null)
+        {
+            return new ErrorResult();
+        }
+        _brandDal.Delete(brand);
+        return new SuccessResult("Brand removed successfully.");
     }
 }

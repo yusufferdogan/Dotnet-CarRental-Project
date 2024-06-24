@@ -36,4 +36,20 @@ public class ColorManager: IColorService
     {
         return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
     }
+
+    public DataResult<Color> GetById(Guid id)
+    {
+        return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == id));
+    }
+
+    public Result RemoveById(Guid id)
+    {
+        var color = _colorDal.Get(c => c.ColorId == id);
+        if (color == null)
+        {
+            return new ErrorResult("Color not found");
+        }
+        _colorDal.Delete(color);
+        return new SuccessResult();
+    }
 }
