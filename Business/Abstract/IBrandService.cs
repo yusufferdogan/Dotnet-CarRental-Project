@@ -10,4 +10,6 @@ public interface IBrandService
     public Result Update(Brand brand);
 
     public DataResult<List<Brand>> GetAll();
+    public DataResult<Brand> GetById(Guid id);
+    public Result RemoveById(Guid id);
 }

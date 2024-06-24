@@ -10,4 +10,8 @@ public interface IColorService
     public Result Update(Color brand);
 
     public DataResult<List<Color>> GetAll();
+    
+    public DataResult<Color> GetById(Guid id);
+    
+    public Result RemoveById(Guid id);
 }

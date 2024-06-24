@@ -24,4 +24,8 @@ public interface ICarService
 
     public Result Update(Car car);
     
+    public DataResult<Car> GetById(Guid id);
+    
+    public Result RemoveById(Guid id);
+    
 }
