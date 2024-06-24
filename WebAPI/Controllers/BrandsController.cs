@@ -6,11 +6,11 @@ namespace WebAPI.Controllers;
 
 [Route("api/brands")]
 [ApiController]
-public class BrandController : ControllerBase
+public class BrandsController : ControllerBase
 {
     private readonly IBrandService _brandService;
     
-    public BrandController(IBrandService brandService)
+    public BrandsController(IBrandService brandService)
     {
         _brandService = brandService;
     }
