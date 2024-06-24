@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{70265F89-4385-45C6-9285-0FD2DEEC5B2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{4EBA2D37-441B-4D1D-91D3-E9DA961BEE1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{70265F89-4385-45C6-9285-0FD2DEEC5B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70265F89-4385-45C6-9285-0FD2DEEC5B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70265F89-4385-45C6-9285-0FD2DEEC5B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EBA2D37-441B-4D1D-91D3-E9DA961BEE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EBA2D37-441B-4D1D-91D3-E9DA961BEE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EBA2D37-441B-4D1D-91D3-E9DA961BEE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EBA2D37-441B-4D1D-91D3-E9DA961BEE1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
